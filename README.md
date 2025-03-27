@@ -1,29 +1,147 @@
-# NOAA VHI Data Analysis Project
+# Автоматичне завантаження та обробка даних VHI
 
-This project automates the download and analysis of Vegetation Health Index (VHI) data from NOAA's STAR service for Ukrainian regions.
+## Опис проекту
+Цей проект автоматично завантажує CSV-файли з даними VHI (Vegetation Health Index) для України, обробляє їх та аналізує екстремальні погодні умови, такі як посухи. Дані отримуються з NOAA (National Oceanic and Atmospheric Administration) для всіх областей України за період 1981-2024 років.
 
-## Project Description
+## Функціональність
+- **Автоматичне завантаження даних** для всіх областей України.
+- **Очищення та обробка даних** для коректного формату.
+- **Аналіз VHI**: отримання екстремумів, середнього значення, медіани та пошук екстремальних посух.
 
-The script performs the following operations:
-1. Automatically downloads VHI data for all 27 Ukrainian regions
-2. Cleans and processes the raw CSV files
-3. Combines data into a unified DataFrame
-4. Provides analytical functions for VHI data exploration
+## Вимоги
+- Python 3.x
+- Pandas
+- urllib
+- os
 
-## Features
+## Встановлення
+1. Клонуйте репозиторій або скопіюйте файли проєкту:
+   ```sh
+   git clone <URL>
+   ```
+2. Встановіть необхідні бібліотеки:
+   ```sh
+   pip install pandas
+   ```
 
-- **Automatic Download**: Fetches the latest VHI data from NOAA servers
-- **Collision Handling**: Ensures no duplicate files by removing old versions before download
-- **Data Cleaning**: Processes raw CSV files to remove formatting artifacts
-- **Region Mapping**: Corrects region indexes to match standard Ukrainian administrative divisions
-- **Analytical Functions**:
-  - Get VHI time series for specific regions and years
-  - Calculate VHI extremes (min/max), averages and medians
-  - Analyze VHI across year ranges
-  - Identify years with extreme drought conditions
-
-## Usage
-
-### Data Download
+## Використання
+### Завантаження даних
+Скрипт автоматично створює папку `vhi` і завантажує в неї CSV-файли для кожної області, видаляючи попередні версії:
 ```python
-data_update()  # Downloads data for all 27 regions
+data_update()
+```
+
+### Обробка даних
+Функція `load_data(directory)` завантажує та очищає дані, повертаючи DataFrame:
+```python
+vhi = load_data("vhi")
+vhi.head()
+```
+
+### Оновлення індексів областей
+```python
+vhi = update_indx(vhi)
+```
+
+### Збереження оброблених даних у CSV
+```python
+vhi.to_csv("vhi_dataset.csv", index=False, encoding='utf-8')
+```
+
+## Аналіз даних
+### Отримання VHI для області за рік
+```python
+vhi_reg_year(vhi, "Kiev", 2017)
+```
+
+### Пошук екстремумів (мінімум, максимум, середнє, медіана) для областей та років
+```python
+extr(vhi, ["Kiev", "Poltava"], [2017, 2024])
+```
+
+### Отримання VHI за діапазон років
+```python
+vhi_range_year(vhi, ["Poltava", "Kiev"], 2023, 2024, 5)
+```
+
+### Виявлення років із масовими посухами
+```python
+vhi_dryness(vhi, 10)
+```
+
+## Автор
+Розробник: **[Ваше ім'я]**  
+Email: **[Ваш email]**
+
+# Автоматичне завантаження та обробка даних VHI
+
+## Опис проекту
+Цей проект автоматично завантажує CSV-файли з даними VHI (Vegetation Health Index) для України, обробляє їх та аналізує екстремальні погодні умови, такі як посухи. Дані отримуються з NOAA (National Oceanic and Atmospheric Administration) для всіх областей України за період 1981-2024 років.
+
+## Функціональність
+- **Автоматичне завантаження даних** для всіх областей України.
+- **Очищення та обробка даних** для коректного формату.
+- **Аналіз VHI**: отримання екстремумів, середнього значення, медіани та пошук екстремальних посух.
+
+## Вимоги
+- Python 3.x
+- Pandas
+- urllib
+- os
+
+## Встановлення
+1. Клонуйте репозиторій або скопіюйте файли проєкту:
+   ```sh
+   git clone <URL>
+   ```
+2. Встановіть необхідні бібліотеки:
+   ```sh
+   pip install pandas
+   ```
+
+## Використання
+### Завантаження даних
+Скрипт автоматично створює папку `vhi` і завантажує в неї CSV-файли для кожної області, видаляючи попередні версії:
+```python
+data_update()
+```
+
+### Обробка даних
+Функція `load_data(directory)` завантажує та очищає дані, повертаючи DataFrame:
+```python
+vhi = load_data("vhi")
+vhi.head()
+```
+
+### Оновлення індексів областей
+```python
+vhi = update_indx(vhi)
+```
+
+### Збереження оброблених даних у CSV
+```python
+vhi.to_csv("vhi_dataset.csv", index=False, encoding='utf-8')
+```
+
+## Аналіз даних
+### Отримання VHI для області за рік
+```python
+vhi_reg_year(vhi, "Kiev", 2017)
+```
+
+### Пошук екстремумів (мінімум, максимум, середнє, медіана) для областей та років
+```python
+extr(vhi, ["Kiev", "Poltava"], [2017, 2024])
+```
+
+### Отримання VHI за діапазон років
+```python
+vhi_range_year(vhi, ["Poltava", "Kiev"], 2023, 2024, 5)
+```
+
+### Виявлення років із масовими посухами
+```python
+vhi_dryness(vhi, 10)
+```
+
+
