@@ -1,17 +1,46 @@
-# VHI Data Analysis
+# VHI Data Analysis Web App
 
-Цей проєкт використовує бібліотеки **Streamlit**, **Pandas**, **Matplotlib** та **Seaborn** для аналізу та візуалізації даних VHI (Vegetation Health Index).
+## Project Description
+This project is a web-based data visualization tool for analyzing Vegetation Health Index (VHI) data using Streamlit. It allows users to explore VHI trends across different regions of Ukraine, filter data based on weeks and years, and generate visual comparisons.
 
-## Опис
+## Features
+- **Interactive UI** built with Streamlit.
+- **Dynamic data filtering** by region, week, and year range.
+- **Visualization tools**: time series plots, bar charts, and comparison plots.
+- **Sorting options** to analyze trends.
+- **Reset filters** to quickly start a new analysis.
 
-Проєкт дозволяє користувачам:
-- Вибирати індекс (VHI, VCI, TCI).
-- Фільтрувати дані за регіоном, тижневим інтервалом і роками.
-- Переглядати дані у вигляді таблиці, графіка часових рядів та порівняння середніх значень для різних регіонів.
+## Requirements
+- Python 3.x
+- Streamlit
+- Pandas
+- Matplotlib
+- Seaborn
 
-## Як запустити
+## Installation
+1. Clone the repository:
+   ```sh
+   git clone <URL>
+   ```
+2. Install the required dependencies:
+   ```sh
+   pip install streamlit pandas matplotlib seaborn
+   ```
+3. Place the `vhi_dataset.csv` file in the project directory.
 
-1. Клонуйте цей репозиторій:
-   ```bash
-   git clone <URL-репозиторію>
-   cd <назва-репозиторію>
+## Usage
+### Running the Streamlit App
+Run the following command in the terminal:
+```sh
+streamlit run app.py
+```
+
+### Interacting with the App
+- **Select Index**: Choose between VHI, VCI, and TCI.
+- **Select Region**: Pick a specific region to analyze.
+- **Filter by Week and Year Range**: Adjust sliders to refine the dataset.
+- **Sorting**: Choose ascending or descending order.
+- **Visualizations**:
+  - **Table View**: Display filtered data.
+  - **Time Series Plot**: View VHI trends over time.
+  - **Comparison Plot**: Compare average VHI values across regions.
