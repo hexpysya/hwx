@@ -1,2 +1,3 @@
 vhi/*.csv
 *.csv
+.venv/
