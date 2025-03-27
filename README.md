@@ -1,29 +1,17 @@
-# NOAA VHI Data Analysis Project
+# VHI Data Analysis
 
-This project automates the download and analysis of Vegetation Health Index (VHI) data from NOAA's STAR service for Ukrainian regions.
+Цей проєкт використовує бібліотеки **Streamlit**, **Pandas**, **Matplotlib** та **Seaborn** для аналізу та візуалізації даних VHI (Vegetation Health Index).
 
-## Project Description
+## Опис
 
-The script performs the following operations:
-1. Automatically downloads VHI data for all 27 Ukrainian regions
-2. Cleans and processes the raw CSV files
-3. Combines data into a unified DataFrame
-4. Provides analytical functions for VHI data exploration
+Проєкт дозволяє користувачам:
+- Вибирати індекс (VHI, VCI, TCI).
+- Фільтрувати дані за регіоном, тижневим інтервалом і роками.
+- Переглядати дані у вигляді таблиці, графіка часових рядів та порівняння середніх значень для різних регіонів.
 
-## Features
+## Як запустити
 
-- **Automatic Download**: Fetches the latest VHI data from NOAA servers
-- **Collision Handling**: Ensures no duplicate files by removing old versions before download
-- **Data Cleaning**: Processes raw CSV files to remove formatting artifacts
-- **Region Mapping**: Corrects region indexes to match standard Ukrainian administrative divisions
-- **Analytical Functions**:
-  - Get VHI time series for specific regions and years
-  - Calculate VHI extremes (min/max), averages and medians
-  - Analyze VHI across year ranges
-  - Identify years with extreme drought conditions
-
-## Usage
-
-### Data Download
-```python
-data_update()  # Downloads data for all 27 regions
+1. Клонуйте цей репозиторій:
+   ```bash
+   git clone <URL-репозиторію>
+   cd <назва-репозиторію>
