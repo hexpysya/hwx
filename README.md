@@ -20,7 +20,7 @@ This project is a web-based data visualization tool for analyzing Vegetation Hea
 ## Installation
 1. Clone the repository:
    ```sh
-   git clone <URL>
+   git clone https://github.com/hexpysya/hwx.git
    ```
 2. Install the required dependencies:
    ```sh
