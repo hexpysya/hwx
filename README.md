@@ -1,29 +1,70 @@
-# NOAA VHI Data Analysis Project
-
-This project automates the download and analysis of Vegetation Health Index (VHI) data from NOAA's STAR service for Ukrainian regions.
+# Automatic Download and Processing of VHI Data
 
 ## Project Description
-
-The script performs the following operations:
-1. Automatically downloads VHI data for all 27 Ukrainian regions
-2. Cleans and processes the raw CSV files
-3. Combines data into a unified DataFrame
-4. Provides analytical functions for VHI data exploration
+This project automatically downloads CSV files containing Vegetation Health Index (VHI) data for Ukraine, processes them, and analyzes extreme weather conditions such as droughts. The data is sourced from NOAA (National Oceanic and Atmospheric Administration) for all Ukrainian regions from 1981 to 2024.
 
 ## Features
+- **Automatic data download** for all Ukrainian regions.
+- **Data cleaning and processing** to ensure correct formatting.
+- **VHI analysis**: retrieving minimum, maximum, average, and median values, as well as detecting extreme droughts.
 
-- **Automatic Download**: Fetches the latest VHI data from NOAA servers
-- **Collision Handling**: Ensures no duplicate files by removing old versions before download
-- **Data Cleaning**: Processes raw CSV files to remove formatting artifacts
-- **Region Mapping**: Corrects region indexes to match standard Ukrainian administrative divisions
-- **Analytical Functions**:
-  - Get VHI time series for specific regions and years
-  - Calculate VHI extremes (min/max), averages and medians
-  - Analyze VHI across year ranges
-  - Identify years with extreme drought conditions
+## Requirements
+- Python 3.x
+- Pandas
+- urllib
+- os
+
+## Installation
+1. Clone the repository or copy the project files:
+   ```sh
+   git clone <URL>
+   ```
+2. Install the required libraries:
+   ```sh
+   pip install pandas
+   ```
 
 ## Usage
-
-### Data Download
+### Downloading Data
+The script automatically creates a `vhi` folder and downloads CSV files for each region, deleting previous versions:
 ```python
-data_update()  # Downloads data for all 27 regions
+data_update()
+```
+
+### Data Processing
+The `load_data(directory)` function loads and cleans the data, returning a DataFrame:
+```python
+vhi = load_data("vhi")
+vhi.head()
+```
+
+### Updating Region Indices
+```python
+vhi = update_indx(vhi)
+```
+
+### Saving Processed Data to CSV
+```python
+vhi.to_csv("vhi_dataset.csv", index=False, encoding='utf-8')
+```
+
+## Data Analysis
+### Retrieving VHI for a Region by Year
+```python
+vhi_reg_year(vhi, "Kiev", 2017)
+```
+
+### Finding Extremes (Min, Max, Mean, Median) for Selected Regions and Years
+```python
+extr(vhi, ["Kiev", "Poltava"], [2017, 2024])
+```
+
+### Retrieving VHI for a Year Range
+```python
+vhi_range_year(vhi, ["Poltava", "Kiev"], 2023, 2024, 5)
+```
+
+### Detecting Years with Widespread Droughts
+```python
+vhi_dryness(vhi, 10)
+```
