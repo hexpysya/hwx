@@ -32,7 +32,7 @@ This project is a web-based data visualization tool for analyzing Vegetation Hea
 ### Running the Streamlit App
 Run the following command in the terminal:
 ```sh
-streamlit run app.py
+streamlit run pi.py
 ```
 
 ### Interacting with the App
