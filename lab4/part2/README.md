@@ -4,17 +4,16 @@
 
 ---
 
-## Використані бібліотеки
+## Встановлення
 
-- pandas
-- numpy
-- seaborn
-- matplotlib
-- timeit
-- scipy (pearsonr, spearmanr)
-- sklearn (OneHotEncoder, train_test_split, LinearRegression, Ridge, Lasso, mean_squared_error)
+Необхідні бібліотеки можна встановити за допомогою файлу `requirements.txt`:
+
+```bash
+pip install -r requirements.txt
+```
 
 ---
+
 
 ## Завдання
 
@@ -75,7 +74,7 @@
 
 ### 6. One Hot Encoding для категоріального атрибуту
 
-- Категоріальний стовпець: `Date`.
+- Категоріальний стовпець: `Time`.
 - Використовується `OneHotEncoder` зі `sklearn`.
 - Порівнюється розмір отриманих матриць та час кодування.
 
@@ -116,5 +115,3 @@
 - Вимірювання часу для різних підходів.
 - Рівень зручності при побудові моделей та візуалізації.
 - Практичне застосування методів аналізу для реального датасету.
-
----
