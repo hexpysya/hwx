@@ -1,0 +1,6 @@
+rasterio
+numpy
+gdal
+tabulate
+matplotlib
+scikit-learn
